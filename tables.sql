@@ -8,7 +8,6 @@ CREATE TABLE teams (
 );
 
 -- Таблица пользователей (игроков)
-
 CREATE TABLE users (
     -- Имя пользователя
     username        varchar(64)     primary key,
@@ -20,4 +19,17 @@ CREATE TABLE users (
     register_date   date            not null default CURRENT_DATE,
     -- id команды, в которой состоит игрок
     team_id         int             references teams(id)
+);
+
+-- Таблица домов игроков
+CREATE TABLE houses (
+    id          int         primary key,
+    -- Координаты расположения дома в игровом мире
+    position_x  real        not null, 
+    position_y  real        not null, 
+    position_z  real        not null,
+    -- Стоимость дома
+    price       real        not null default 0,
+    -- Владелец дома
+    owner       varchar(64) references users(username)
 );
