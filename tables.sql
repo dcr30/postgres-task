@@ -1,10 +1,13 @@
+CREATE SCHEMA IF NOT EXISTS task;
+
+-- Использование схемы task
 SET search_path TO task;
 
 -- Таблица команд, в которых могут состоять игроки
 CREATE TABLE teams (
-    id      int     primary key,
+    id      serial  primary key,
     -- Название команды
-    name    text    not null,
+    name    text    not null unique,
     -- Уровень команды
     level   int     not null default 1
 );
@@ -25,7 +28,7 @@ CREATE TABLE users (
 
 -- Таблица домов игроков
 CREATE TABLE houses (
-    id          int         primary key,
+    id          serial      primary key,
     -- Координаты расположения дома в игровом мире
     position_x  real        not null, 
     position_y  real        not null, 
@@ -55,7 +58,7 @@ CREATE TABLE cars (
     -- Владелец
     owner       varchar(64) references users(username),
     -- Модель
-    model_id    int         references models(id),
+    model_id    int         references car_models(id),
     -- Пробег
     mileage     real        not null default 0,
     -- Уровень
