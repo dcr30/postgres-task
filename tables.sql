@@ -3,7 +3,9 @@ SET search_path TO task;
 -- Таблица команд, в которых могут состоять игроки
 CREATE TABLE teams (
     id      int     primary key,
+    -- Название команды
     name    text    not null,
+    -- Уровень команды
     level   int     not null default 1
 );
 
@@ -32,4 +34,42 @@ CREATE TABLE houses (
     price       real        not null default 0,
     -- Владелец дома
     owner       varchar(64) references users(username)
+);
+
+-- Модели машин
+CREATE TABLE car_models (
+    id          int         primary key,
+    -- Название модели (напр. Mazda RX-8)
+    name        text        not null,
+    -- Цена автомобиля данной модели
+    price       real        not null default 0,
+    -- Скорость по-умолчанию
+    speed       real        not null,
+    -- Масса по-умолчанию
+    weight      real        not null
+);
+
+-- Машины игроков
+CREATE TABLE cars (
+    id          int         primary key,
+    -- Владелец
+    owner       varchar(64) references users(username),
+    -- Модель
+    model_id    int         references models(id),
+    -- Пробег
+    mileage     real        not null default 0,
+    -- Уровень
+    level       int         not null default 1
+);
+
+-- Улучшения, установленные на машины
+CREATE TABLE car_upgrades (
+    -- id машины, на которую добавляется улучшение
+    car_id      int         references cars(id),
+    -- Цена улучшения 
+    price       real        not null default 0,
+    -- Скорость, которую добавляет улучшение
+    add_speed   real        not null default 0,
+    -- Масса, которую добавляет улучшение
+    add_weight  real        not null default 0
 );
