@@ -1,3 +1,5 @@
-# PostgreSQL
+# Лабораторные работы по СУБД
 
-![Schema](https://pp.vk.me/c626223/v626223694/456fe/4m88Ci2Iw9A.jpg)
+![Scheme](https://pp.vk.me/c638916/v638916694/14b8b/wDHINReppYY.jpg)
+
+[Описание схемы базы данных](https://github.com/dcr30/postgres-task/blob/master/DESCRIPTION.md)
