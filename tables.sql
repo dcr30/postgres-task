@@ -3,6 +3,17 @@ CREATE SCHEMA IF NOT EXISTS task;
 -- Использование схемы task
 SET search_path TO task;
 
+-- Таблица соревнований между командами
+CREATE TABLE competitions (
+    id              serial          primary key,    
+    -- Статус соревнования "running", "completed" и т. д.
+    status          varchar(16)     not null default 0,
+    -- Дата начала соревнования
+    start_date      date            not null,
+    -- Опциональное описание соревнования
+    description     text
+);
+
 -- Таблица команд, в которых могут состоять игроки
 CREATE TABLE teams (
     id      serial  primary key,
@@ -10,6 +21,14 @@ CREATE TABLE teams (
     name    text    not null unique,
     -- Уровень команды
     level   int     not null default 1
+);
+
+-- Таблица, связывающая соревнования и команды
+CREATE TABLE competition_teams (
+    competition_id  serial  references competitions(id),
+    team_id         serial  references teams(id),
+    -- Счёт команды в соревновании
+    score           int     not null default 0
 );
 
 -- Таблица пользователей (игроков)
