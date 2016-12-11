@@ -60,7 +60,7 @@ CREATE TABLE houses (
 
 -- Модели машин
 CREATE TABLE car_models (
-    id          int         primary key,
+    id          serial      primary key,
     -- Название модели (напр. Mazda RX-8)
     name        text        not null,
     -- Цена автомобиля данной модели
@@ -73,7 +73,7 @@ CREATE TABLE car_models (
 
 -- Машины игроков
 CREATE TABLE cars (
-    id          int         primary key,
+    id          serial      primary key,
     -- Владелец
     owner       varchar(64) references users(username),
     -- Модель
@@ -87,7 +87,7 @@ CREATE TABLE cars (
 -- Улучшения, установленные на машины
 CREATE TABLE car_upgrades (
     -- id машины, на которую добавляется улучшение
-    car_id      int         references cars(id),
+    car_id      serial      references cars(id),
     -- Цена улучшения 
     price       numeric     not null default 0,
     -- Скорость, которую добавляет улучшение

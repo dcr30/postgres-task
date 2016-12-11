@@ -5,7 +5,7 @@ SET search_path TO task;
 INSERT INTO competitions (status, start_date, description) VALUES
 	('waiting', 	current_date, 'Example competition'),
 	('running', 	current_date, 'Another example competition'),
-	('completed', 	current_date);
+	('completed', 	current_date, NULL);
 
 -- Команды
 INSERT INTO teams (name, level) VALUES
