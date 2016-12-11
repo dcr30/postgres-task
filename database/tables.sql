@@ -53,7 +53,7 @@ CREATE TABLE houses (
     position_y  real        not null, 
     position_z  real        not null,
     -- Стоимость дома
-    price       real        not null default 0,
+    price       numeric     not null default 0,
     -- Владелец дома
     owner       varchar(64) references users(username)
 );
@@ -64,7 +64,7 @@ CREATE TABLE car_models (
     -- Название модели (напр. Mazda RX-8)
     name        text        not null,
     -- Цена автомобиля данной модели
-    price       real        not null default 0,
+    price       numeric     not null default 0,
     -- Скорость по-умолчанию
     speed       real        not null,
     -- Масса по-умолчанию
@@ -89,9 +89,9 @@ CREATE TABLE car_upgrades (
     -- id машины, на которую добавляется улучшение
     car_id      int         references cars(id),
     -- Цена улучшения 
-    price       real        not null default 0,
+    price       numeric     not null default 0,
     -- Скорость, которую добавляет улучшение
-    add_speed   real        not null default 0,
+    add_speed   real,
     -- Масса, которую добавляет улучшение
-    add_weight  real        not null default 0
+    add_weight  real
 );
