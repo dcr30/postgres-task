@@ -86,6 +86,7 @@ CREATE TABLE cars (
 
 -- Улучшения, установленные на машины
 CREATE TABLE car_upgrades (
+    id          serial      primary key,
     -- id машины, на которую добавляется улучшение
     car_id      serial      references cars(id),
     -- Цена улучшения 
@@ -93,5 +94,7 @@ CREATE TABLE car_upgrades (
     -- Скорость, которую добавляет улучшение
     add_speed   real,
     -- Масса, которую добавляет улучшение
-    add_weight  real
+    add_weight  real,
+    -- Дата установки улучшения
+    add_date    date            not null default CURRENT_DATE  
 );
