@@ -28,7 +28,24 @@ WHERE
 
 -- TODO: Показать все варианты JOIN на командах и пользователях
 
--- TODO: Получить машины, имеющие улучшения. Посчитать сумму, 
---       потраченную на улучшения для каждого автомобиля. В 
---       результирующей таблице должны быть следующие поля:
---       id машины, username владельца, пробег, название модели
+-- Получить машины, имеющие улучшения. Посчитать сумму, 
+-- потраченную на улучшения для каждого автомобиля. В 
+-- результирующей таблице должны быть следующие поля:
+-- id машины, username владельца, пробег, название модели
+SELECT 
+    cars.id, 
+    cars.owner, 
+    cars.mileage, 
+    car_models.name as model_name, 
+    costs.total as upgrades_price
+
+FROM cars
+    INNER JOIN car_upgrades ON car_upgrades.car_id = cars.id
+    INNER JOIN car_models ON car_models.id = cars.model_id
+    INNER JOIN (
+        SELECT car_id, SUM(price) AS total 
+        FROM car_upgrades 
+        GROUP BY car_upgrades.car_id
+    ) costs ON costs.car_id = cars.id
+
+GROUP BY cars.id, car_models.name, costs.total
