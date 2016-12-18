@@ -5,7 +5,7 @@
 ### Структура файлов:
 - [database/tables.sql](https://github.com/dcr30/postgres-task/blob/master/database/tables.sql) - запрос для создание всех таблиц
 - [database/data.sql](https://github.com/dcr30/postgres-task/blob/master/database/data.sql) - заполнение созданных таблиц данными
-- [database/alter.sql](https://github.com/dcr30/postgres-task/blob/master/database/alter.sql) - демонстрационный запрос для изменения структуры таблицы users
+- [database/queries.sql](https://github.com/dcr30/postgres-task/blob/master/database/queries.sql) - различные запросы
 
 ### Текстовое описание схемы
 Текстовое описание схемы: [Online](https://github.com/dcr30/postgres-task/blob/master/description/DESCRIPTION.md), [PDF](https://raw.githubusercontent.com/dcr30/postgres-task/master/description/description.pdf).

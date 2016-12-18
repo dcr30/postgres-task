@@ -3,9 +3,9 @@ SET search_path TO task;
 
 -- Соревнования
 INSERT INTO competitions (status, start_date, description) VALUES
-	('waiting', 	current_date, 'Example competition'),
-	('running', 	current_date, 'Another example competition'),
-	('completed', 	current_date, NULL);
+	('waiting', 	date '2016-09-28', 'Example competition'),
+	('running', 	date '2016-09-25', 'Another example competition'),
+	('completed', 	date '2016-08-01', NULL);
 
 -- Команды
 INSERT INTO teams (name, level) VALUES
@@ -29,17 +29,17 @@ INSERT INTO competition_teams (competition_id, team_id, score) VALUES
 	(3, 5, 2);
 
 -- Пользователи
-INSERT INTO users (username, password, level, team_id) VALUES 
-	('AlcoholicLobster12', 			'uF5n5FZr',	1,	1),
-	('UnequaledSpaghetti27', 		'bkRRFF8M', 2,	1),
-	('AboriginalSalamander83',		'h2hcd4rh', 1, 	2),
-	('CreepyPudding62', 			'GzNTwTC3', 10,	3),
-	('LuckyBandit15', 				'cxqLzFMp',	12,	1),
-	('DynamicLeader99', 			'5p2Whk2S', 25,	5),
-	('IntellectualBastard21', 		'B5kH7LaP', 1,	2),
-	('LazyassedContender55', 		'7PtwXZbM', 1,	4),
-	('FoolishSpecialist46', 		'DCvUkzH2', 64,	4),
-	('ViolentAssassin70', 			'AGT7z3T6', 32,	5);
+INSERT INTO users (username, password, level, team_id, register_date) VALUES 
+	('AlcoholicLobster12', 			'uF5n5FZr',	1,	1, date '2016-05-28'),
+	('UnequaledSpaghetti27', 		'bkRRFF8M', 2,	1, date '2016-08-16'),
+	('AboriginalSalamander83',		'h2hcd4rh', 1, 	2, date '2016-11-18'),
+	('CreepyPudding62', 			'GzNTwTC3', 10,	3, date '2016-10-01'),
+	('LuckyBandit15', 				'cxqLzFMp',	12,	1, date '2016-12-07'),
+	('DynamicLeader99', 			'5p2Whk2S', 25,	5, date '2016-07-28'),
+	('IntellectualBastard21', 		'B5kH7LaP', 1,	2, date '2016-07-11'),
+	('LazyassedContender55', 		'7PtwXZbM', 1,	4, date '2016-06-02'),
+	('FoolishSpecialist46', 		'DCvUkzH2', 64,	4, date '2016-08-15'),
+	('ViolentAssassin70', 			'AGT7z3T6', 32,	5, date '2016-09-12');
 
 -- Дома
 INSERT INTO houses (position_x, position_y, position_z, price, owner) VALUES
@@ -72,7 +72,7 @@ INSERT INTO cars (owner, model_id, mileage, level) VALUES
 	('IntellectualBastard21', 	7, 1125, 8);
 
 -- Улучшения автомобилей
-INSERT INTO car_upgrades (car_id, price, add_speed, add_weight) VALUES
-	(1, 200, 10, 0),
-	(1, 250, 5, -5),
-	(1, 500, 0, -5);
+INSERT INTO car_upgrades (car_id, price, add_speed, add_weight, add_date) VALUES
+	(1, 200, 10, 0, date '2016-12-16'),
+	(1, 250, 5, -5, date '2016-12-17'),
+	(1, 500, 0, -5, date '2016-12-18');
