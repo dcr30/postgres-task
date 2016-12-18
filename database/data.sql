@@ -17,7 +17,7 @@ INSERT INTO teams (name, level) VALUES
     ('Ninjas in Pyjamas',   1),
     ('Virtus.Pro',          2),
     ('Cloud9',              5),
-    ('NewTeam',             1);
+    ('NewTeam',             1),
     ('AnotherTeam',         2);
 
 -- Участие команд в соревнованиях
