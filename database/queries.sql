@@ -1,15 +1,13 @@
 -- Получить команды, которые принимали участие во всех завершённых соревнованиях
-SELECT * 
-FROM teams
-WHERE EXISTS (
-    SELECT * 
-    FROM competition_teams 
-    WHERE competition_teams.team_id = teams.id
-            AND NOT EXISTS (
-                SELECT * 
-                FROM competitions
-                WHERE competitions.id = competition_teams.competition_id AND competitions.status <> 'completed'
-            )
+SELECT * FROM teams
+WHERE NOT EXISTS (
+    SELECT * FROM competitions
+    WHERE NOT EXISTS (
+        SELECT * FROM competition_teams 
+        WHERE competition_teams.team_id = teams.id AND
+              competition_teams.competition_id = competitions.id
+    )
+    AND competitions.status = 'completed'
 )
 
 -- TODO: Показать все варианты JOIN на командах и пользователях

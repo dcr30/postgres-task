@@ -35,15 +35,15 @@ INSERT INTO competition_teams (competition_id, team_id, score) VALUES
 
     (4, 3, 0),
     (4, 2, 5),
-    (4, 5, 4),
+    (4, 4, 4),
 
     (5, 1, 4),
     (5, 3, 5),
-    (5, 5, 2),
+    (5, 4, 2),
 
-    (6, 2, 0),
+    (6, 4, 0),
+    (6, 5, 2),
     (6, 3, 1);
-    (6, 5, 2);
 
 -- Пользователи
 INSERT INTO users (username, password, level, team_id, register_date) VALUES 
