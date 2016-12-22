@@ -10,7 +10,30 @@ WHERE NOT EXISTS (
     AND competitions.status = 'completed'
 )
 
--- TODO: Показать все варианты JOIN на командах и пользователях
+-- Показать все варианты JOIN на командах и пользователях
+-- 1. Inner Join
+-- Вернёт всех пользователей, у которых есть команда 
+SELECT users.username, teams.name as team_name
+FROM users
+    INNER JOIN teams ON (users.team_id = teams.id);
+
+-- 2. Left Outer Join
+-- Вернёт всех пользователей с командой и пользователей без команды
+SELECT users.username, teams.name as team_name
+FROM users
+    LEFT OUTER JOIN teams ON (users.team_id = teams.id);
+
+-- 3. Right Outer Join
+-- Вернёт всех пользователей, у которых есть команда и команды без пользователей
+SELECT users.username, teams.name as team_name
+FROM users
+    RIGHT OUTER JOIN teams ON (users.team_id = teams.id);
+
+-- 4. Full Outer Join
+-- Вернёт всех пользователей и все командыы
+SELECT users.username, teams.name as team_name
+FROM users
+    FULL OUTER JOIN teams ON (users.team_id = teams.id);
 
 -- Получить машины, имеющие улучшения. Посчитать сумму, 
 -- потраченную на улучшения для каждого автомобиля. В 
